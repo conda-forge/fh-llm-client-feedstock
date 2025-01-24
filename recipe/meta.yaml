@@ -1,5 +1,5 @@
 {% set name = "fh-llm-client" %}
-{% set version = "0.0.10" %}
+{% set version = "0.0.11" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/fh_llm_client-{{ version }}.tar.gz
-  sha256: 88c84d59cc564cb9ea2f416108444c24d3c36ff4e51a88832bd3114e5bb2fdc1
+  sha256: 4288daba94da3a11b77ff6e45b1e85355f4b0a445a1488ff70636bc519132192
 
 build:
   noarch: python
