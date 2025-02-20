@@ -1,5 +1,5 @@
 {% set name = "fh-llm-client" %}
-{% set version = "0.0.11" %}
+{% set version = "0.1.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/fh_llm_client-{{ version }}.tar.gz
-  sha256: 4288daba94da3a11b77ff6e45b1e85355f4b0a445a1488ff70636bc519132192
+  sha256: 859da187b0e5b24545828fd88f9a16be9ca4f46a2443f6ba3665759609823725
 
 build:
   noarch: python
@@ -29,7 +29,7 @@ requirements:
     - limits
     - pydantic >=2.0,<3.dev0,>=2.10.1,<2.10.2
     - tiktoken >=0.4.0
-    - litellm
+    - litellm >=1.60.2
 
 test:
   imports:
