@@ -1,0 +1,52 @@
+schema_version: 1
+
+context:
+  name: fh-llm-client
+  version: "0.1.0"
+  python_min: "3.11"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/fh_llm_client-${{ version }}.tar.gz
+  sha256: 859da187b0e5b24545828fd88f9a16be9ca4f46a2443f6ba3665759609823725
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools >=64
+    - setuptools-scm >=8
+    - pip
+  run:
+    - typing_extensions
+    - python >=${{ python_min }}
+    - coredis
+    - fhaviary >=0.14.0
+    - limits
+    - pydantic >=2.0,<3.dev0,>=2.10.1,<2.10.2
+    - tiktoken >=0.4.0
+    - litellm >=1.60.2
+
+tests:
+  - python:
+      imports:
+        - llmclient
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: A client to provide LLM responses for FutureHouse applications.
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/Future-House/llm-client
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
